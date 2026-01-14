@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schola Exorcistae - Codex Maximus</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-cross"></i>
+                <h2>VADE MECUM</h2>
+            </div>
+            <nav>
+                <button class="nav-btn active" onclick="navegar('inicio')"><i class="fa-solid fa-eye"></i> Início / Guia</button>
+                <button class="nav-btn" onclick="navegar('oracoes')"><i class="fa-solid fa-scroll"></i> Orações</button>
+                <button class="nav-btn" onclick="navegar('dicionario')"><i class="fa-solid fa-book-bible"></i> Dicionário</button>
+            </nav>
+            <div id="voz-status" class="status-audio">Carregando vozes...</div>
+        </aside>
+
+        <main id="main-content">
+            
+            <section id="inicio" class="content-section active">
+                <h1>Guia de Estudos & Combate</h1>
+                
+                <div class="prayer-container" style="text-align: center;">
+                    <p>Bem-vindo ao Codex. Aqui você dominará a língua sagrada para proteção e estudo.</p>
+                </div>
+
+                <div class="tutorial-grid">
+                    <div class="card-info">
+                        <h3><i class="fa-solid fa-ear-listen"></i> Regras de Pronúncia</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li><strong>AE / OE = "É"</strong> (Caelum -> Tchélum)</li>
+                            <li><strong>C + E/I = "TCH"</strong> (Crucis -> Crútchis)</li>
+                            <li><strong>TI + Vogal = "TSI"</strong> (Gratia -> Grátsia)</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-info">
+                        <h3><i class="fa-solid fa-bolt"></i> Vocabulário de Comando</h3>
+                        <div class="quick-vocab">
+                            <button class="btn-sm-vocab" onclick="falar('Exorcizamus te')">Exorcizamus</button>
+                            <button class="btn-sm-vocab" onclick="falar('Vade Retro Satana')">Vade Retro</button>
+                            <button class="btn-sm-vocab" onclick="falar('Imperat tibi')">Imperat Tibi</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prayer-container" style="margin-top: 20px;">
+                    <h3><i class="fa-solid fa-book-open"></i> Verbo Ser (Esse)</h3>
+                    <div class="btn-group">
+                        <button class="btn-play" onclick="falar('Ego sum')">Ego sum (Eu sou)</button>
+                        <button class="btn-play" onclick="falar('Tu es')">Tu es (Tu és)</button>
+                        <button class="btn-play" onclick="falar('Deus est')">Deus est (Deus é)</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="oracoes" class="content-section">
+                <h1>Liber Precum</h1>
+
+                <div class="prayer-container">
+                    <h2>Signum Crucis (Sinal da Cruz)</h2>
+                    <p class="latin">In nomine Patris, et Filii, et Spiritus Sancti. Amen.</p>
+                    <div class="btn-group">
+                        <button class="btn-play" onclick="falar(this.parentElement.previousElementSibling.innerText)">🔊 Recitar</button>
+                        <button class="btn-music" onclick="tocarMusica('sinal.mp3')">🎶 Cantar</button>
+                    </div>
+                </div>
+
+                <div class="prayer-container">
+                    <h2>Pater Noster</h2>
+                    <p class="latin">Pater noster, qui es in caelis, sanctificetur nomen tuum. Adveniat regnum tuum. Fiat voluntas tua, sicut in caelo et in terra. Panem nostrum quotidianum da nobis hodie. Et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris. Et ne nos inducas in tentationem, sed libera nos a malo. Amen.</p>
+                    <div class="btn-group">
+                        <button class="btn-play" onclick="falar(this.parentElement.previousElementSibling.innerText)">🔊 Recitar</button>
+                        <button class="btn-music" onclick="tocarMusica('pater.mp3')">🎶 Cantar</button>
+                    </div>
+                </div>
+
+                <div class="prayer-container">
+                    <h2>Ave Maria</h2>
+                    <p class="latin">Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus, et benedictus fructus ventris tui, Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatoribus, nunc et in hora mortis nostrae. Amen.</p>
+                    <div class="btn-group">
+                        <button class="btn-play" onclick="falar(this.parentElement.previousElementSibling.innerText)">🔊 Recitar</button>
+                        <button class="btn-music" onclick="tocarMusica('ave.mp3')">🎶 Cantar</button>
+                    </div>
+                </div>
+
+                <div class="prayer-container">
+                    <h2>Gloria Patri</h2>
+                    <p class="latin">Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in saecula saeculorum. Amen.</p>
+                    <div class="btn-group">
+                        <button class="btn-play" onclick="falar(this.parentElement.previousElementSibling.innerText)">🔊 Recitar</button>
+                        <button class="btn-music" onclick="tocarMusica('gloria.mp3')">🎶 Cantar</button>
+                    </div>
+                </div>
+
+                <div class="prayer-container">
+                    <h2>Sancte Angele (Santo Anjo)</h2>
+                    <p class="latin">Angele Dei, qui custos es mei, me, tibi commissum pietate superna, illumina, custodi, rege et guberna. Amen.</p>
+                    <div class="btn-group">
+                        <button class="btn-play" onclick="falar(this.parentElement.previousElementSibling.innerText)">🔊 Recitar</button>
+                        <button class="btn-music" onclick="tocarMusica('angele.mp3')">🎶 Cantar</button>
+                    </div>
+                </div>
+
+                <div class="prayer-container">
+                    <h2>Symbolum Apostolorum (Credo)</h2>
+                    <p class="latin">Credo in Deum Patrem omnipotentem, Creatorem caeli et terrae. Et in Iesum Christum, Filium eius unicum, Dominum nostrum... Credo in Spiritum Sanctum, sanctam Ecclesiam catholicam, sanctorum communionem, remissionem peccatorum, carnis resurrectionem, vitam aeternam. Amen.</p>
+                    <div class="btn-group">
+                        <button class="btn-play" onclick="falar(this.parentElement.previousElementSibling.innerText)">🔊 Recitar</button>
+                        <button class="btn-music" onclick="tocarMusica('credo.mp3')">🎶 Cantar</button>
+                    </div>
+                </div>
+
+                <div class="prayer-container">
+                    <h2>Crux Sacra (São Bento)</h2>
+                    <p class="latin">Crux Sacra Sit Mihi Lux! Non Draco Sit Mihi Dux! Vade Retro Satana! Nunquam Suade Mihi Vana! Sunt Mala Quae Libas! Ipse Venena Bibas! Amen.</p>
+                    <div class="btn-group">
+                        <button class="btn-play" onclick="falar(this.parentElement.previousElementSibling.innerText)">🔊 Recitar</button>
+                        <button class="btn-music" onclick="tocarMusica('saobento.mp3')">🎶 Cantar</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="dicionario" class="content-section">
+                <h1>Thesaurus</h1>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Pesquisar termo..." onkeyup="pesquisar()">
+                </div>
+                <div id="lista-palavras"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
