@@ -11,44 +11,40 @@
 body { margin: 0; font-family: 'Georgia', serif; background: var(--bg-dark); color: var(--text); overflow: hidden; }
 .app-container { display: flex; height: 100vh; }
 
-/* SIDEBAR E CRUZ IGUAL VERSÃO 2.0 */
+/* SIDEBAR */
 .sidebar {
-    width: var(--sidebar-w); background: #000;
-    border-right: 2px solid var(--red); padding: 20px;
-    transition: 0.4s ease; z-index: 100; display: flex; flex-direction: column;
+    width: var(--sidebar-w); background: #000; border-right: 2px solid var(--red);
+    padding: 20px; transition: 0.4s ease; display: flex; flex-direction: column;
 }
 .sidebar.closed { margin-left: calc(-1 * var(--sidebar-w) - 40px); }
-
-.logo { text-align: center; margin: 40px 0; color: var(--gold); }
-.logo i { font-size: 2.5rem; } /* Tamanho da V 2.0 */
-
+.logo { text-align: center; margin: 30px 0; color: var(--gold); }
 .nav-btn {
-    background: none; border: none; color: #888; width: 100%;
-    text-align: left; padding: 15px; cursor: pointer; border-radius: 5px;
-    margin-bottom: 8px; display: flex; align-items: center; gap: 10px; font-size: 1.1rem;
+    background: none; border: none; color: #888; width: 100%; text-align: left;
+    padding: 15px; cursor: pointer; border-radius: 5px; margin-bottom: 5px;
+    display: flex; align-items: center; gap: 10px; font-size: 1.1rem;
 }
-.nav-btn.active, .nav-btn:hover { background: var(--red); color: #fff; }
+.nav-btn.active, .nav-btn:hover { background: var(--red); color: white; }
 
-/* MAIN CONTENT */
+/* MAIN */
 main { flex: 1; padding: 60px 40px; overflow-y: auto; background: radial-gradient(#222, #000); }
-.content-section { display: none; max-width: 900px; margin: 0 auto; animation: fadeIn 0.5s; }
+.content-section { display: none; max-width: 800px; margin: 0 auto; animation: fadeIn 0.6s; }
 .content-section.active { display: block; }
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+/* CARDS E GRIDS */
+.tutorial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+.card-info { background: var(--bg-panel); padding: 20px; border: 1px solid #333; border-radius: 5px; }
+.card-info h3 { color: var(--gold); margin-top: 0; }
 
-/* CARDS E ORAÇÕES */
 .prayer-container { background: var(--bg-panel); padding: 25px; margin-bottom: 25px; border-left: 4px solid var(--gold); }
 .latin { font-style: italic; font-size: 1.2rem; color: #ccc; line-height: 1.6; margin-bottom: 15px; }
 
-.btn-group { display: flex; gap: 10px; }
-.btn-play { background: var(--gold); border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 4px; flex: 1; color: black; }
-.btn-music { background: var(--purple); border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 4px; flex: 1; color: white; }
+/* BOTÕES */
+.btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-play, .btn-music { padding: 10px 15px; border: none; cursor: pointer; font-weight: bold; border-radius: 3px; flex: 1; color: white; }
+.btn-play { background: #333; border: 1px solid var(--gold); color: var(--gold); }
+.btn-music { background: #1a052b; border: 1px solid var(--purple); color: #d8b4fe; }
+.btn-sm-vocab { background: #111; color: var(--gold); border: 1px solid #444; padding: 8px; cursor: pointer; border-radius: 4px; flex: 1; margin: 2px; }
 
-.version-alert { background: rgba(139, 0, 0, 0.2); border: 1px solid var(--red); padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 30px; }
-.version-alert a { color: var(--gold); font-weight: bold; }
+.menu-toggle { position: fixed; top: 15px; left: 15px; z-index: 200; background: var(--red); color: white; border: none; padding: 10px; cursor: pointer; }
 
-/* RESPONSIVIDADE V 2.0 */
-@media (max-width: 768px) {
-    .tutorial-grid { grid-template-columns: 1fr; }
-    main { padding: 60px 20px; }
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
