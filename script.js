@@ -25,7 +25,7 @@ function pararSom() {
     playerMusica.currentTime = 0;
 }
 
-// VOZ (IA)
+// VOZ (●)
 window.speechSynthesis.onvoiceschanged = () => { vozes = window.speechSynthesis.getVoices(); };
 function falar(texto) {
     pararSom();
